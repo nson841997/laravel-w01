@@ -20,8 +20,15 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'category'], function () {
 
         Route::get('list','categoryController@getList');
-        Route::get('edit','categoryController@getEdit');
+
+        Route::get('edit/{id}','categoryController@getEdit');
+        Route::post('edit/{id}','categoryController@postEdit');
+
         Route::get('add','categoryController@getAdd');
+        Route::post('add','categoryController@postAdd');
+
+        Route::get('delete/{id}','categoryController@getDelete');
+
         
     });
     Route::group(['prefix' => 'news'], function () {
